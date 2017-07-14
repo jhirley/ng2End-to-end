@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { UserService } from '../adminShared/user.service';
 
 @Component({
 
@@ -7,7 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class SignUpComponent implements OnInit {
-    constructor() { }
+    constructor(
+        private router : Router,
+        private userService : UserService
+    ) {  }
 
     ngOnInit() { }
+    
+    email: string;
+    password: string;
+    password2: string;
+    passwordFail: boolean = false;
+
+    signUp() {
+        if (this.password !== this.password2) {
+            this.passwordFail = true;
+        } else {
+            this.passwordFail = false;
+            this.userService.resgister(this.email, this.password);
+            this.userService.verifyUser();
+        }
+    }
+    cancel() {
+        this.router.navigate(['/admin/login']);
+    }
 }

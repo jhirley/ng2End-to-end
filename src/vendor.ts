@@ -12,3 +12,4 @@ import 'rxjs';
 import 'script!jquery';
 import 'foundation-sites/dist/js/foundation.js';
 import '../public/sass/styles.scss';
+import 'firebase/firebase.js';
