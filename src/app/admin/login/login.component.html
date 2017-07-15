@@ -1,1 +1,30 @@
-<h1>login works</h1>
+
+<div class="row expanded align-center">
+    <h1>Login to your account</h1>
+</div>
+
+
+
+<div class="row align-center">
+    <form action="">
+        <div class="small-12 columns">
+            <label>Username
+                <input type="text" placeholder="Enter an Email address" id="email" [(ngModel)]="email" name="email" required #em="ngModel">
+                <div [hidden]="em.valid || em.pristine" class="alert callout">Email is required</div>
+            </label>
+        </div>
+        <div class="small-12 columns">
+            <label>Password
+                <input type="password" placeholder="Enter a password" id="password" [(ngModel)]="password" name="password" required #pw="ngModel">
+                <div [hidden]="pw.valid || pw.pristine" class="alert callout">Password is required</div>
+            </label>
+        </div>
+        <div class="small-12 columns align-center">
+            <a class="success button" (click)="login()">Login</a>
+            <a class="button" (click)="signup()">SignUp</a>
+        </div>
+        <div class="small-12 columns">
+            <p (click)="cancel()" class="text-center simlink">Back to the Main Site</p>
+        </div>
+    </form>
+</div>

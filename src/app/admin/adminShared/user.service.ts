@@ -39,6 +39,12 @@ export class UserService implements CanActivate{
                 alert(`${error.message} Please try again!`);
             })
     }
+    login(email:string, password:string){
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+            .catch( function(error){
+                alert(`${error.message} Please try again!`);
+            })
+    }
 
     verifyUser() {
         this.authUser = firebase.auth().currentUser;
