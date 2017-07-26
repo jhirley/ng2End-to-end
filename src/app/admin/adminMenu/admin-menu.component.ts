@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { UserService } from '../adminShared/user.service';
 
 @Component({
    
@@ -7,7 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class AdminMenuComponent implements OnInit {
-    constructor() { }
+    theUser: string; 
 
-    ngOnInit() { }
+    constructor(         
+        private router : Router,
+        private userService : UserService
+    ) {  }
+
+    ngOnInit() {
+        this.theUser = this.userService.loggedInUser;
+     }
+    logout() {
+        this.userService.logout();
+        this.router.navigate(['']);
+    }
 }

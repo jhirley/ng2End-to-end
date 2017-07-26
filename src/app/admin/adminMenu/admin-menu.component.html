@@ -1,1 +1,18 @@
-<h1>admin-menu works</h1>
+<div class="top-bar">
+    <div class="tob-bar-title">
+        GGC Admin Area
+    </div>
+    <div class="top-bat-left"> 
+        <ul class="menu">
+            <li class="admin-menu"><a href="#">One</a></li>
+            <li class="admin-menu"><a href="#">two</a></li>
+        </ul>
+    </div>
+    <div *ngIf = "theUser" class="top-bar-right">
+        <ul class="menu">
+            <li class="admin-menu"><a click="logout()">Logout</a></li>
+            <li class="admin-menu"><a>{{theUser}} Logged in</a></li>
+        </ul>
+
+    </div>
+</div>

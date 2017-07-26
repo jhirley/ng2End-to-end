@@ -5,7 +5,7 @@ import * as firebase from 'firebase';
 @Injectable()
 export class UserService implements CanActivate{
 
-    userLoggedIn: boolean = true;
+    userLoggedIn: boolean = false;
     loggedInUser: string;
     authUser: any;
 
@@ -54,6 +54,14 @@ export class UserService implements CanActivate{
             this.userLoggedIn = true;
             this.router.navigate(['/admin']);
         }
+    }
+    logout(){
+        this.userLoggedIn = false;
+        firebase.auth().signOut().then(function(){
+            alert(`Logged Out!`);
+        }, function(error) {
+            alert(`${error.message} Unable to Logout. Try Again!`);
+        });
     }
 
 } 
