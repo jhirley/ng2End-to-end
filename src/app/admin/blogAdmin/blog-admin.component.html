@@ -2,7 +2,7 @@
     <div class="tob-bar-title">
         GGC Admin Area
     </div>
-    <div class="top-bat-left"> 
+    <div class="top-bar-left"> 
         <ul class="menu">
             <li class="admin-menu"><a (click)="chooseMode('add')"> Add a Post</a></li>
             <li *ngIf = "menuChoice" class="admin-menu"><a (click)="chooseMode('')"> Manage Blog</a></li>
@@ -19,6 +19,6 @@
     </div>
 </div>
 <div [ngSwitch]="menuChoice">
-    <div *ngSwitchCase="'add'"><h1>Add Menu</h1></div>
+    <div *ngSwitchCase="'add'"><add-menu></add-menu></div>
     <div *ngSwitchDefault><h1>Default</h1></div>
 </div>

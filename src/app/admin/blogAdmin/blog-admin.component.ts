@@ -30,17 +30,18 @@ export class BlogAdminComponent implements OnInit {
     getPosts(){
         let dbRef = firebase.database().ref('blogPosts/');
         dbRef.once('value')
-            .then((snapshot) => {
-                 let tmp: string[] = snapshot.val();
-                 this.blogPosts = Object.keys(tmp).map(key => tmp[key]);
+            .then((snapshot)=> {
+                let tmp: string[] = snapshot.val();
+                this.blogPosts = Object.keys(tmp).map(key => tmp[key])
             });
     }
+
     logOut(){
         this.userService.logout();
         this.router.navigate(['']);
     }
 
-    choosemode(mode: string){
+    chooseMode(mode: string){
         this.menuChoice = mode;
     }
 }

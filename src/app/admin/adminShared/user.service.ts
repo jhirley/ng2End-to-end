@@ -11,12 +11,12 @@ export class UserService implements CanActivate{
 
     constructor(private router: Router) {
         firebase.initializeApp({
-            apiKey: "AIzaSyAeryrwysbBrKheYohyvkvw7f2kbcKvPp4",
-            authDomain: "gigabytegames-10d59.firebaseapp.com",
-            databaseURL: "https://gigabytegames-10d59.firebaseio.com",
-            projectId: "gigabytegames-10d59",
-            storageBucket: "gigabytegames-10d59.appspot.com",
-            messagingSenderId: "618503999020"
+        apiKey: "AIzaSyAeryrwysbBrKheYohyvkvw7f2kbcKvPp4",
+        authDomain: "gigabytegames-10d59.firebaseapp.com",
+        databaseURL: "https://gigabytegames-10d59.firebaseio.com",
+        // projectId: "gigabytegames-10d59",
+        storageBucket: "gigabytegames-10d59.appspot.com",
+        messagingSenderId: "618503999020"
         })
      }
 
@@ -40,7 +40,7 @@ export class UserService implements CanActivate{
             })
     }
     login(email:string, password:string){
-        firebase.auth().createUserWithEmailAndPassword(email, password)
+        firebase.auth().signInWithEmailAndPassword(email, password)
             .catch( function(error){
                 alert(`${error.message} Please try again!`);
             })
