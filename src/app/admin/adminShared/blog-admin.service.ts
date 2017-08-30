@@ -25,4 +25,25 @@ export class BlogAdminService {
                 alert(`failed to upload: ${error}`);
             });            
     }
+
+    editPost(update: Blog){
+        let dbRef = firebase.database().ref('blogPosts/').child(update.id)
+            .update({
+                title: update.title,
+                content: update.content
+            });
+            alert('post updated');
+    }
+
+    removePost(deletePost: Blog){
+        let dbRef = firebase.database().ref('blogPosts/').child(deletePost.id).remove();
+        alert('Post Deleted');
+        let imageRef = firebase.storage().ref().child(`images/${deletePost.imgTitle}`)
+            .delete()
+                .then( function(){
+                    alert(`${deletePost.imgTitle} was deleted from storage`);
+                }).catch( function(error) {
+                    alert(`Error - Unable to delete ${deletePost.imgTitle}`); 
+                })
+    }
 }
