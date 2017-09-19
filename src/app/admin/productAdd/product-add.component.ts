@@ -29,12 +29,7 @@ export class ProductAddComponent {
         }
 
     }
-    // public name: string,
-    // public description: string,
-    // public price: number,
-    // public imgTitle: string,
-    // public img: any,
-    // public id?: string
+
     createProduct(){
         this.product = new Product ( 
             this.productName, 

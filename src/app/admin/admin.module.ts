@@ -38,7 +38,8 @@ const AdminRoutes: Routes = [
         RouterModule.forChild(AdminRoutes)
     ],
     exports: [
-        RouterModule
+        RouterModule, 
+        TruncatePipe
     ],
     declarations: [
         AdminComponent,
@@ -48,8 +49,8 @@ const AdminRoutes: Routes = [
         BlogAdminComponent,
         BlogAddComponent,
         ProductAdminComponent,
-        ProductAddComponent,
-        TruncatePipe 
+        ProductAddComponent
+        ,TruncatePipe 
     ],
     providers: [
         UserService,
